@@ -20,17 +20,23 @@ while True:
     print("\nMenu:")
     print("1. Display entire inventory")
     print("2. Display specific category")
-    print("3. Exit")
+    print("3. Add items to inventory")
+    print("4. Exit")
     
     choice = input("Enter your choice: ")
 
     if choice == "1":
         display_inventory()
     elif choice == "2":
-        category = input("Enter category (Sword, Shield, or Potion): ")
-        display_category(category.capitalize())  # capitalize input for consistency
+        category = input("Enter category (Sword, Shield, Potion, or other): ")
+        display_category(category.capitalize())
     elif choice == "3":
+        new_category = input("Enter new category: ")
+        new_quantity = int(input(f"Enter quantity of {new_category}: "))
+        inventory[new_category.capitalize()] = new_quantity
+        print(f"{new_quantity} {new_category}(s) added to inventory.")
+    elif choice == "4":
         print("Exiting program. Goodbye!")
         break
     else:
-        print("Invalid choice! Please enter 1, 2, or 3.")
+        print("Invalid choice! Please enter 1, 2, 3, or 4.")
